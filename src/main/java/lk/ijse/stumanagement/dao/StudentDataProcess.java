@@ -1,6 +1,6 @@
 package lk.ijse.stumanagement.dao;
 
-import org.example.studentmanagement.dto.StudentDTO;
+import lk.ijse.stumanagement.dto.StudentDTO;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ public final class StudentDataProcess implements StudentData{
 
 
     @Override
-    public StudentDTO getStudent(String studentId, Connection connection) throws SQLException {
+    public StudentDTO getStudent(String studentId, Connection connection) {
 
         var studentDTO = new StudentDTO();
 

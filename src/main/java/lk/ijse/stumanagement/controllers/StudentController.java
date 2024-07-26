@@ -9,9 +9,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.example.studentmanagement.dao.StudentDataProcess;
-import org.example.studentmanagement.dto.StudentDTO;
-import org.example.studentmanagement.util.UtilProcess;
+import lk.ijse.stumanagement.dao.StudentDataProcess;
+import lk.ijse.stumanagement.dto.StudentDTO;
+import lk.ijse.stumanagement.util.UtilProcess;
 
 import java.io.IOException;
 import java.sql.Connection;
