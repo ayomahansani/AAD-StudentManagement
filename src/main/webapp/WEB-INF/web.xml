@@ -24,4 +24,10 @@
         <param-value>Ijse@123</param-value>
     </context-param>
 
+    <!-- front end eke domain eka methanata denava - frontend eka run vena port eka 63342 -->
+    <context-param>
+        <param-name>origin</param-name>
+        <param-value>http://localhost:63342</param-value>
+    </context-param>
+
 </web-app>

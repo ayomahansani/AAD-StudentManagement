@@ -18,7 +18,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 @WebServlet(urlPatterns = "/student"
 //        initParams = {
 //          @WebInitParam(name = "driver-class",value = "com.mysql.cj.jdbc.Driver"),
@@ -215,10 +214,16 @@ public class StudentController extends HttpServlet {
             return;
         }
 
-        try (var writer = resp.getWriter()){
+        try (var writer = resp.getWriter()){ // this is called as try with resource
 
+            // Create a JSONb object
             Jsonb jsonb = JsonbBuilder.create();    //json bind type object ekak create kara gannava
+
+            // Deserialization
+            // Assign DTO/model to a JSONb object
             StudentDTO studentDTO = jsonb.fromJson(req.getReader(), StudentDTO.class);
+
+            // Set the id using UtilProcess
             studentDTO.setId(UtilProcess.generateId());
 
             var saveData = new StudentDataProcess();
@@ -247,7 +252,7 @@ public class StudentController extends HttpServlet {
 
         if (req.getContentType() == null || !req.getContentType().toLowerCase().startsWith("application/json")) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST); //send error
-            return;
+             return;
         }
 
         try(var writer = resp.getWriter()) {
@@ -330,10 +335,10 @@ public class StudentController extends HttpServlet {
 
             resp.setContentType("application/json");
             Jsonb jsonb = JsonbBuilder.create();
+
+            // Serialization
             jsonb.toJson(studentDTO, writer);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
 
     }
