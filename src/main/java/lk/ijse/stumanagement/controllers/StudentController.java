@@ -13,6 +13,9 @@ import lk.ijse.stumanagement.dao.StudentDataProcess;
 import lk.ijse.stumanagement.dto.StudentDTO;
 import lk.ijse.stumanagement.util.UtilProcess;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -42,10 +45,10 @@ public class StudentController extends HttpServlet {
         try {
 
             // web.xml eka athule thiyena context params tike values tika gannava getInitParameter() method eken
-            var driverClass = getServletContext().getInitParameter("driver-class");
+            /*var driverClass = getServletContext().getInitParameter("driver-class");
             var dbURL = getServletContext().getInitParameter("dbURL");
             var userName = getServletContext().getInitParameter("dbUserName");
-            var password = getServletContext().getInitParameter("dbPassword");
+            var password = getServletContext().getInitParameter("dbPassword");*/
 
             // Get configs from servlet
             /*var driverClass = getServletConfig().getInitParameter("driver-class");
@@ -55,21 +58,34 @@ public class StudentController extends HttpServlet {
 
             // Log initialization parameters (for debugging purposes)
             System.out.println("Initializing database connection");
-            System.out.println("Driver Class: " + driverClass);
+           /* System.out.println("Driver Class: " + driverClass);
             System.out.println("Database URL: " + dbURL);
             System.out.println("Database Username: " + userName);
-            System.out.println("Database Password: " + password);
+            System.out.println("Database Password: " + password);*/
+
+
+
+
+            // ======= after create connection pool , this is the step 3 ===========
+
+
+            // connection pool eken ganna connection eka thiya ganna space ekak hadanava
+            var ctx = new InitialContext();
+
+            // lookup karala ganna resourse eka oonama type venna puluvan nis DataSource valata narrow cast kara gannava
+            DataSource pool = (DataSource) ctx.lookup("java:comp/env/jdbc/stuRegistration");
 
             // Load the driver class
-            Class.forName(driverClass);
+            /*Class.forName(driverClass);*/
 
             // Establish the database connection
-            this.connection = DriverManager.getConnection(dbURL, userName, password);
+            /*this.connection = DriverManager.getConnection(dbURL, userName, password);*/
+            this.connection = pool.getConnection();
 
             // Log successful connection
             System.out.println("Database connection established successfully");
 
-        } catch (ClassNotFoundException e) {
+        } catch (NamingException e) {
             e.printStackTrace();
             throw new ServletException("Database driver class not found", e);
         } catch (SQLException e) {
