@@ -12,6 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.stumanagement.dao.StudentDataProcess;
 import lk.ijse.stumanagement.dto.StudentDTO;
 import lk.ijse.stumanagement.util.UtilProcess;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -28,8 +30,10 @@ import java.sql.SQLException;
 //          @WebInitParam(name = "dbUserName",value = "root"),
 //          @WebInitParam(name = "dbPassword",value = "mysql"),
 //        }
-)
+,loadOnStartup = 2)
 public class StudentController extends HttpServlet {
+
+    static Logger logger = LoggerFactory.getLogger(StudentController.class);
 
     Connection connection;
 
@@ -41,6 +45,9 @@ public class StudentController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+
+        // log
+        logger.info("Initializing StudentController with call init method");
 
         try {
 
@@ -72,7 +79,7 @@ public class StudentController extends HttpServlet {
             // connection pool eken ganna connection eka thiya ganna space ekak hadanava
             var ctx = new InitialContext();
 
-            // lookup karala ganna resourse eka oonama type venna puluvan nis DataSource valata narrow cast kara gannava
+            // lookup karala ganna resourse eka oonama type venna puluvan nisa DataSource valata narrow cast kara gannava
             DataSource pool = (DataSource) ctx.lookup("java:comp/env/jdbc/stuRegistration");
 
             // Load the driver class
