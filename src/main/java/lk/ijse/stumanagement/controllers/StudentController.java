@@ -46,8 +46,11 @@ public class StudentController extends HttpServlet {
     @Override
     public void init() throws ServletException {
 
-        // log
+        // info log
         logger.info("Initializing StudentController with call init method");
+
+        // trace log
+        logger.trace("Init called");
 
         try {
 
@@ -92,12 +95,12 @@ public class StudentController extends HttpServlet {
             // Log successful connection
             System.out.println("Database connection established successfully");
 
-        } catch (NamingException e) {
+        } catch (NamingException | SQLException e) {
+
+            // error log
+            logger.error("Init faild with ", e.getMessage());
+
             e.printStackTrace();
-            throw new ServletException("Database driver class not found", e);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new ServletException("Failed to establish database connection", e);
         }
     }
 
@@ -233,6 +236,10 @@ public class StudentController extends HttpServlet {
         // ****** after divide layers ******
 
         if (req.getContentType() == null || !req.getContentType().toLowerCase().startsWith("application/json")) {
+
+            // debug log
+            logger.debug("Call do post method");
+
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST); //send error
             return;
         }
