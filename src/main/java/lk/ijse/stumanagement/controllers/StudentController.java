@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lk.ijse.stumanagement.bo.StudentBO;
 import lk.ijse.stumanagement.bo.StudentBOImpl;
 import lk.ijse.stumanagement.dao.StudentDAOImpl;
 import lk.ijse.stumanagement.dto.StudentDTO;
@@ -36,6 +37,8 @@ public class StudentController extends HttpServlet {
     static Logger logger = LoggerFactory.getLogger(StudentController.class);
 
     Connection connection;
+
+    private StudentBO studentBO = new StudentBOImpl();
 
     /*static String SAVE_STUDENT = "INSERT INTO Student (id,name,city,email,level) VALUES (?,?,?,?,?)";
     static String UPDATE_STUDENT = "UPDATE Student SET name=?, city=?, email=?, level=? WHERE id=?";
@@ -256,9 +259,8 @@ public class StudentController extends HttpServlet {
             // Set the id using UtilProcess
             studentDTO.setId(UtilProcess.generateId());
 
-            var saveData = new StudentBOImpl();
 
-            if(saveData.saveStudent(studentDTO, connection)){
+            if(studentBO.saveStudent(studentDTO, connection)){
                 writer.write("Student saved successfully");
                 resp.setStatus(HttpServletResponse.SC_CREATED);
             }else {
@@ -291,9 +293,8 @@ public class StudentController extends HttpServlet {
             Jsonb jsonb = JsonbBuilder.create();    //json bind type object ekak create kara gannava
             StudentDTO studentDTO = jsonb.fromJson(req.getReader(), StudentDTO.class);
 
-            var updateData = new StudentBOImpl();
 
-            if(updateData.updateStudent(studentId, studentDTO, connection)){
+            if(studentBO.updateStudent(studentId, studentDTO, connection)){
                 System.out.println("Student updated successfully");
                 writer.write("Student updated successfully");
                 resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
@@ -356,11 +357,10 @@ public class StudentController extends HttpServlet {
 
         var studentId = req.getParameter("id");
 
-        var getData = new StudentBOImpl();
 
         try (var writer = resp.getWriter()){
 
-            StudentDTO studentDTO = getData.getStudent(studentId, connection);
+            StudentDTO studentDTO = studentBO.getStudent(studentId, connection);
             System.out.println(studentDTO);
 
             resp.setContentType("application/json");
@@ -384,9 +384,8 @@ public class StudentController extends HttpServlet {
 
             var studentId = req.getParameter("id");
 
-            var deleteStudent = new StudentBOImpl();
 
-            if(deleteStudent.deleteStudent(studentId, connection)){
+            if(studentBO.deleteStudent(studentId, connection)){
                 System.out.println("Student deleted successfully");
                 writer.write("Student deleted successfully");
                 resp.setStatus(HttpServletResponse.SC_NO_CONTENT);

@@ -10,7 +10,7 @@ import java.sql.Connection;
 
 public final class StudentBOImpl implements StudentBO {
 
-    StudentDAO studentDAO = new StudentDAOImpl();
+    private StudentDAO studentDAO = new StudentDAOImpl();
 
 
     @Override
