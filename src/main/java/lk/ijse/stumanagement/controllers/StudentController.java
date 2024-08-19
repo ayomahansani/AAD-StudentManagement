@@ -272,6 +272,8 @@ public class StudentController extends HttpServlet {
         } catch (JsonException e) {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -307,6 +309,8 @@ public class StudentController extends HttpServlet {
         } catch (JsonException e) {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -369,6 +373,8 @@ public class StudentController extends HttpServlet {
             // Serialization
             jsonb.toJson(studentDTO, writer);
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }

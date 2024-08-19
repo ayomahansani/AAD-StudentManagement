@@ -1,5 +1,6 @@
 package lk.ijse.stumanagement.bo;
 
+import lk.ijse.stumanagement.dao.DAOFactory;
 import lk.ijse.stumanagement.dao.StudentDAO;
 import lk.ijse.stumanagement.dao.StudentDAOImpl;
 import lk.ijse.stumanagement.dto.StudentDTO;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 
 public final class StudentBOImpl implements StudentBO {
 
-    private StudentDAO studentDAO = new StudentDAOImpl();
+    private StudentDAO studentDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
 
 
     @Override
