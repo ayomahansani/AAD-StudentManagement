@@ -6,6 +6,7 @@ import lk.ijse.stumanagement.dto.StudentDTO;
 import lk.ijse.stumanagement.entity.Student;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 
 public final class StudentBOImpl implements StudentBO {
@@ -14,25 +15,25 @@ public final class StudentBOImpl implements StudentBO {
 
 
     @Override
-    public StudentDTO getStudent(String studentId, Connection connection) {
-        Student student = studentDAO.getStudent(studentId, connection);
+    public StudentDTO getStudent(String studentId, Connection connection) throws SQLException {
+        Student student = studentDAO.get(studentId, connection);
         return new StudentDTO(student.getId(),student.getName(),student.getEmail(),student.getCity(),student.getLevel());
     }
 
     @Override
-    public boolean saveStudent(StudentDTO studentDTO, Connection connection) {
+    public boolean saveStudent(StudentDTO studentDTO, Connection connection) throws SQLException {
         Student student = new Student(studentDTO.getId(),studentDTO.getName(),studentDTO.getEmail(),studentDTO.getCity(),studentDTO.getLevel());
-        return studentDAO.saveStudent(student, connection);
+        return studentDAO.save(student, connection);
     }
 
     @Override
-    public boolean deleteStudent(String studentId, Connection connection) {
-        return studentDAO.deleteStudent(studentId, connection);
+    public boolean deleteStudent(String studentId, Connection connection) throws SQLException {
+        return studentDAO.delete(studentId, connection);
     }
 
     @Override
-    public boolean updateStudent(String studentId, StudentDTO studentDTO, Connection connection) {
+    public boolean updateStudent(String studentId, StudentDTO studentDTO, Connection connection) throws SQLException {
         Student student = new Student(studentDTO.getId(),studentDTO.getName(),studentDTO.getEmail(),studentDTO.getCity(),studentDTO.getLevel());
-        return studentDAO.updateStudent(studentId, student, connection);
+        return studentDAO.update(studentId, student, connection);
     }
 }

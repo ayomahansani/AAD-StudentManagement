@@ -15,7 +15,7 @@ public final class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public Student getStudent(String studentId, Connection connection) {
+    public Student get(String studentId, Connection connection) {
 
         var student = new Student();
 
@@ -40,7 +40,7 @@ public final class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public boolean saveStudent(Student student, Connection connection) {
+    public boolean save(Student student, Connection connection) {
 
         try {
 
@@ -61,7 +61,7 @@ public final class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public boolean deleteStudent(String studentId, Connection connection) {
+    public boolean delete(String studentId, Connection connection) {
 
         try {
 
@@ -78,7 +78,7 @@ public final class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public boolean updateStudent(String studentId, Student student, Connection connection) {
+    public boolean update(String studentId, Student student, Connection connection) {
 
         try {
 

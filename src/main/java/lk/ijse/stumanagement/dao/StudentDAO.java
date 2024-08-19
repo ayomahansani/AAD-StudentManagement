@@ -5,12 +5,14 @@ import lk.ijse.stumanagement.entity.Student;
 
 import java.sql.Connection;
 
-public sealed interface StudentDAO permits StudentDAOImpl {
+public sealed interface StudentDAO extends CrudDAO<Student> permits StudentDAOImpl {
 
-    Student getStudent(String studentId, Connection connection);
-    boolean saveStudent(Student student, Connection connection);
-    boolean deleteStudent(String studentId, Connection connection);
-    boolean updateStudent(String studentId, Student student, Connection connection);
+/*
+    Student get(String studentId, Connection connection);
+    boolean save(Student student, Connection connection);
+    boolean delete(String studentId, Connection connection);
+    boolean update(String studentId, Student student, Connection connection);
+*/
 
 
 }
