@@ -3,9 +3,8 @@ package lk.ijse.stumanagement.dao;
 import lk.ijse.stumanagement.dto.StudentDTO;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
-public sealed interface StudentData permits StudentDataProcess{
+public sealed interface StudentDAO permits StudentDAOImpl {
 
     StudentDTO getStudent(String studentId, Connection connection);
     boolean saveStudent(StudentDTO studentDTO, Connection connection);

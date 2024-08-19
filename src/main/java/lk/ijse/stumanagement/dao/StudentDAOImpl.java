@@ -5,7 +5,7 @@ import lk.ijse.stumanagement.dto.StudentDTO;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public final class StudentDataProcess implements StudentData{
+public final class StudentDAOImpl implements StudentDAO {
 
     static String SAVE_STUDENT = "INSERT INTO Student (id,name,city,email,level) VALUES (?,?,?,?,?)";
     static String UPDATE_STUDENT = "UPDATE Student SET name=?, city=?, email=?, level=? WHERE id=?";
