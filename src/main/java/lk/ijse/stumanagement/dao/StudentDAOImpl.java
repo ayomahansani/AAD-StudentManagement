@@ -1,6 +1,7 @@
 package lk.ijse.stumanagement.dao;
 
 import lk.ijse.stumanagement.dto.StudentDTO;
+import lk.ijse.stumanagement.entity.Student;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,9 +15,9 @@ public final class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public StudentDTO getStudent(String studentId, Connection connection) {
+    public Student getStudent(String studentId, Connection connection) {
 
-        var studentDTO = new StudentDTO();
+        var student = new Student();
 
         try{
             var ps = connection.prepareStatement(GET_STUDENT);
@@ -24,31 +25,31 @@ public final class StudentDAOImpl implements StudentDAO {
             var resultSet = ps.executeQuery();
 
             while(resultSet.next()){
-                studentDTO.setId(resultSet.getString("id"));
-                studentDTO.setName(resultSet.getString("name"));
-                studentDTO.setCity(resultSet.getString("city"));
-                studentDTO.setEmail(resultSet.getString("email"));
-                studentDTO.setLevel(resultSet.getString("level"));
+                student.setId(resultSet.getString("id"));
+                student.setName(resultSet.getString("name"));
+                student.setEmail(resultSet.getString("email"));
+                student.setCity(resultSet.getString("city"));
+                student.setLevel(resultSet.getString("level"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return studentDTO;
+        return student;
     }
 
 
     @Override
-    public boolean saveStudent(StudentDTO studentDTO, Connection connection) {
+    public boolean saveStudent(Student student, Connection connection) {
 
         try {
 
             var ps = connection.prepareStatement(SAVE_STUDENT);
-            ps.setString(1, studentDTO.getId());
-            ps.setString(2, studentDTO.getName());
-            ps.setString(3, studentDTO.getCity());
-            ps.setString(4, studentDTO.getEmail());
-            ps.setString(5, studentDTO.getLevel());
+            ps.setString(1, student.getId());
+            ps.setString(2, student.getName());
+            ps.setString(4, student.getEmail());
+            ps.setString(3, student.getCity());
+            ps.setString(5, student.getLevel());
 
             return ps.executeUpdate() != 0;
 
@@ -77,15 +78,15 @@ public final class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public boolean updateStudent(String studentId, StudentDTO studentDTO, Connection connection) {
+    public boolean updateStudent(String studentId, Student student, Connection connection) {
 
         try {
 
             var ps = connection.prepareStatement(UPDATE_STUDENT);
-            ps.setString(1, studentDTO.getName());
-            ps.setString(2, studentDTO.getCity());
-            ps.setString(3, studentDTO.getEmail());
-            ps.setString(4, studentDTO.getLevel());
+            ps.setString(1, student.getName());
+            ps.setString(3, student.getEmail());
+            ps.setString(2, student.getCity());
+            ps.setString(4, student.getLevel());
             ps.setString(5, studentId);
 
             return ps.executeUpdate() != 0;

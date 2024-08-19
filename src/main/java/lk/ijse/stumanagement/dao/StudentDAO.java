@@ -1,15 +1,16 @@
 package lk.ijse.stumanagement.dao;
 
 import lk.ijse.stumanagement.dto.StudentDTO;
+import lk.ijse.stumanagement.entity.Student;
 
 import java.sql.Connection;
 
 public sealed interface StudentDAO permits StudentDAOImpl {
 
-    StudentDTO getStudent(String studentId, Connection connection);
-    boolean saveStudent(StudentDTO studentDTO, Connection connection);
+    Student getStudent(String studentId, Connection connection);
+    boolean saveStudent(Student student, Connection connection);
     boolean deleteStudent(String studentId, Connection connection);
-    boolean updateStudent(String studentId, StudentDTO studentDTO, Connection connection);
+    boolean updateStudent(String studentId, Student student, Connection connection);
 
 
 }

@@ -256,7 +256,6 @@ public class StudentController extends HttpServlet {
             // Set the id using UtilProcess
             studentDTO.setId(UtilProcess.generateId());
 
-            //var saveData = new StudentDAOImpl();
             var saveData = new StudentBOImpl();
 
             if(saveData.saveStudent(studentDTO, connection)){
