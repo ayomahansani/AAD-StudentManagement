@@ -41,11 +41,6 @@ public class StudentController extends HttpServlet {
 
     private StudentBO studentBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
 
-    /*static String SAVE_STUDENT = "INSERT INTO Student (id,name,city,email,level) VALUES (?,?,?,?,?)";
-    static String UPDATE_STUDENT = "UPDATE Student SET name=?, city=?, email=?, level=? WHERE id=?";
-    static String GET_STUDENT = "SELECT * FROM Student WHERE id=?";
-    static String DELETE_STUDENT = "DELETE FROM Student WHERE id=?";*/
-
 
     @Override
     public void init() throws ServletException {
@@ -71,7 +66,7 @@ public class StudentController extends HttpServlet {
             var password = getServletConfig().getInitParameter("dbPassword");*/
 
             // Log initialization parameters (for debugging purposes)
-            System.out.println("Initializing database connection");
+            //System.out.println("Initializing database connection");
            /* System.out.println("Driver Class: " + driverClass);
             System.out.println("Database URL: " + dbURL);
             System.out.println("Database Username: " + userName);
@@ -111,7 +106,6 @@ public class StudentController extends HttpServlet {
 
 
     // save student
-
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -258,7 +252,7 @@ public class StudentController extends HttpServlet {
             StudentDTO studentDTO = jsonb.fromJson(req.getReader(), StudentDTO.class);
 
             // Set the id using UtilProcess
-            studentDTO.setId(UtilProcess.generateId());
+            //studentDTO.setId(UtilProcess.generateId());
 
 
             if(studentBO.saveStudent(studentDTO, connection)){
@@ -292,10 +286,12 @@ public class StudentController extends HttpServlet {
 
         try(var writer = resp.getWriter()) {
 
-            var studentId = req.getParameter("id");
+            //var studentId = req.getParameter("id");
+
             Jsonb jsonb = JsonbBuilder.create();    //json bind type object ekak create kara gannava
             StudentDTO studentDTO = jsonb.fromJson(req.getReader(), StudentDTO.class);
 
+            var studentId = studentDTO.getId();
 
             if(studentBO.updateStudent(studentId, studentDTO, connection)){
                 System.out.println("Student updated successfully");
@@ -360,12 +356,32 @@ public class StudentController extends HttpServlet {
 
         // ****** after divide layers ******
 
-        var studentId = req.getParameter("id");
+        // get details from the specific student
+
+        /*var studentId = req.getParameter("id");
 
 
         try (var writer = resp.getWriter()){
 
             StudentDTO studentDTO = studentBO.getStudent(studentId, connection);
+            System.out.println(studentDTO);
+
+            resp.setContentType("application/json");
+            Jsonb jsonb = JsonbBuilder.create();
+
+            // Serialization
+            jsonb.toJson(studentDTO, writer);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }*/
+
+
+
+        try (var writer = resp.getWriter()){
+
+            StudentDTO studentDTO;
+            studentDTO = studentBO.getStudent(connection);
             System.out.println(studentDTO);
 
             resp.setContentType("application/json");
@@ -389,8 +405,12 @@ public class StudentController extends HttpServlet {
 
         try(var writer = resp.getWriter()) {
 
-            var studentId = req.getParameter("id");
+            //var studentId = req.getParameter("id");
 
+            Jsonb jsonb = JsonbBuilder.create();    //json bind type object ekak create kara gannava
+            StudentDTO studentDTO = jsonb.fromJson(req.getReader(), StudentDTO.class);
+
+            var studentId = studentDTO.getId();
 
             if(studentBO.deleteStudent(studentId, connection)){
                 System.out.println("Student deleted successfully");

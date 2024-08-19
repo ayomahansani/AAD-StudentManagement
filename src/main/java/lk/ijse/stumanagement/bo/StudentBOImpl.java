@@ -16,8 +16,8 @@ public final class StudentBOImpl implements StudentBO {
 
 
     @Override
-    public StudentDTO getStudent(String studentId, Connection connection) throws SQLException {
-        Student student = studentDAO.get(studentId, connection);
+    public StudentDTO getStudent(Connection connection) throws SQLException {
+        Student student = studentDAO.get(connection);
         return new StudentDTO(student.getId(),student.getName(),student.getEmail(),student.getCity(),student.getLevel());
     }
 

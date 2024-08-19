@@ -10,18 +10,18 @@ public final class StudentDAOImpl implements StudentDAO {
 
     static String SAVE_STUDENT = "INSERT INTO Student (id,name,city,email,level) VALUES (?,?,?,?,?)";
     static String UPDATE_STUDENT = "UPDATE Student SET name=?, city=?, email=?, level=? WHERE id=?";
-    static String GET_STUDENT = "SELECT * FROM Student WHERE id=?";
+    static String GET_STUDENT = "SELECT * FROM Student";
     static String DELETE_STUDENT = "DELETE FROM Student WHERE id=?";
 
 
     @Override
-    public Student get(String studentId, Connection connection) {
+    public Student get(Connection connection) {
 
         var student = new Student();
 
         try{
             var ps = connection.prepareStatement(GET_STUDENT);
-            ps.setString(1, studentId);
+
             var resultSet = ps.executeQuery();
 
             while(resultSet.next()){

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public sealed interface StudentBO permits StudentBOImpl {
 
 
-    StudentDTO getStudent(String studentId, Connection connection) throws SQLException;
+    StudentDTO getStudent(Connection connection) throws SQLException;
     boolean saveStudent(StudentDTO studentDTO, Connection connection) throws SQLException;
     boolean deleteStudent(String studentId, Connection connection) throws SQLException;
     boolean updateStudent(String studentId, StudentDTO studentDTO, Connection connection) throws SQLException;
