@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lk.ijse.stumanagement.bo.StudentBOImpl;
 import lk.ijse.stumanagement.dao.StudentDAOImpl;
 import lk.ijse.stumanagement.dto.StudentDTO;
 import lk.ijse.stumanagement.util.UtilProcess;
@@ -255,7 +256,8 @@ public class StudentController extends HttpServlet {
             // Set the id using UtilProcess
             studentDTO.setId(UtilProcess.generateId());
 
-            var saveData = new StudentDAOImpl();
+            //var saveData = new StudentDAOImpl();
+            var saveData = new StudentBOImpl();
 
             if(saveData.saveStudent(studentDTO, connection)){
                 writer.write("Student saved successfully");
@@ -290,7 +292,7 @@ public class StudentController extends HttpServlet {
             Jsonb jsonb = JsonbBuilder.create();    //json bind type object ekak create kara gannava
             StudentDTO studentDTO = jsonb.fromJson(req.getReader(), StudentDTO.class);
 
-            var updateData = new StudentDAOImpl();
+            var updateData = new StudentBOImpl();
 
             if(updateData.updateStudent(studentId, studentDTO, connection)){
                 System.out.println("Student updated successfully");
@@ -355,7 +357,7 @@ public class StudentController extends HttpServlet {
 
         var studentId = req.getParameter("id");
 
-        var getData = new StudentDAOImpl();
+        var getData = new StudentBOImpl();
 
         try (var writer = resp.getWriter()){
 
@@ -383,7 +385,7 @@ public class StudentController extends HttpServlet {
 
             var studentId = req.getParameter("id");
 
-            var deleteStudent = new StudentDAOImpl();
+            var deleteStudent = new StudentBOImpl();
 
             if(deleteStudent.deleteStudent(studentId, connection)){
                 System.out.println("Student deleted successfully");
