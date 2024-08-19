@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lk.ijse.stumanagement.bo.BOFactory;
 import lk.ijse.stumanagement.bo.StudentBO;
 import lk.ijse.stumanagement.bo.StudentBOImpl;
 import lk.ijse.stumanagement.dao.StudentDAOImpl;
@@ -38,7 +39,7 @@ public class StudentController extends HttpServlet {
 
     Connection connection;
 
-    private StudentBO studentBO = new StudentBOImpl();
+    private StudentBO studentBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
 
     /*static String SAVE_STUDENT = "INSERT INTO Student (id,name,city,email,level) VALUES (?,?,?,?,?)";
     static String UPDATE_STUDENT = "UPDATE Student SET name=?, city=?, email=?, level=? WHERE id=?";
