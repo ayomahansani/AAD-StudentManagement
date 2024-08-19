@@ -1,0 +1,29 @@
+<configuration>
+
+    <!-- console eke write karanna one nam -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <!-- thawa file ekaka write karanna one nam -->
+    <appender name="File" class="ch.qos.logback.core.FileAppender">
+        <file>/Users/ayomahansani/Documents/AAD/stuManagement-backend/app.log</file> <!-- app.log ekata gihin right click karala copy absolute pathe reference-->
+        <append>true</append>
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="File" />
+    </root>
+
+</configuration>

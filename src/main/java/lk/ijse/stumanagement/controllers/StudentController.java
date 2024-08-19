@@ -12,6 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.stumanagement.dao.StudentDAOImpl;
 import lk.ijse.stumanagement.dto.StudentDTO;
 import lk.ijse.stumanagement.util.UtilProcess;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -27,8 +29,10 @@ import java.sql.SQLException;
 //          @WebInitParam(name = "dbUserName",value = "root"),
 //          @WebInitParam(name = "dbPassword",value = "mysql"),
 //        }
-)
+,loadOnStartup = 2)
 public class StudentController extends HttpServlet {
+
+    static Logger logger = LoggerFactory.getLogger(StudentController.class);
 
     Connection connection;
 
@@ -40,6 +44,12 @@ public class StudentController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+
+        // info log
+        logger.info("Initializing StudentController with call init method");
+
+        // trace log
+        logger.trace("Init called");
 
         try {
 
@@ -71,7 +81,7 @@ public class StudentController extends HttpServlet {
             // connection pool eken ganna connection eka thiya ganna space ekak hadanava
             var ctx = new InitialContext();
 
-            // lookup karala ganna resourse eka oonama type venna puluvan nis DataSource valata narrow cast kara gannava
+            // lookup karala ganna resourse eka oonama type venna puluvan nisa DataSource valata narrow cast kara gannava
             DataSource pool = (DataSource) ctx.lookup("java:comp/env/jdbc/stuRegistration");
 
             // Load the driver class
@@ -84,12 +94,12 @@ public class StudentController extends HttpServlet {
             // Log successful connection
             System.out.println("Database connection established successfully");
 
-        } catch (NamingException e) {
+        } catch (NamingException | SQLException e) {
+
+            // error log
+            logger.error("Init faild with ", e.getMessage());
+
             e.printStackTrace();
-            throw new ServletException("Database driver class not found", e);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new ServletException("Failed to establish database connection", e);
         }
     }
 
@@ -225,6 +235,10 @@ public class StudentController extends HttpServlet {
         // ****** after divide layers ******
 
         if (req.getContentType() == null || !req.getContentType().toLowerCase().startsWith("application/json")) {
+
+            // debug log
+            logger.debug("Call do post method");
+
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST); //send error
             return;
         }

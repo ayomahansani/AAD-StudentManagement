@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="stuManagement:war exploded" />
+      <artifact name="StudentManagement:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83826c96-c841-4f03-8a41-9934304d0f5e" name="Changes" comment="recorrect CROS policy issue">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="83826c96-c841-4f03-8a41-9934304d0f5e" name="Changes" comment="INTRODUCE LOGBACK TO HANDLE LOGS">
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/controllers/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,26 +50,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 10.1.241.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/ayomahansani/Documents/AAD/stuManagement-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.241.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ayomahansani/Documents/AAD/stuManagement-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement" />
@@ -191,7 +189,10 @@
       <workItem from="1722008697967" duration="1185000" />
       <workItem from="1722009911737" duration="9238000" />
       <workItem from="1723260234820" duration="19076000" />
-      <workItem from="1723300310444" duration="432000" />
+      <workItem from="1723300310444" duration="3045000" />
+      <workItem from="1723780127916" duration="71000" />
+      <workItem from="1723783886365" duration="257000" />
+      <workItem from="1723785033713" duration="13702000" />
     </task>
     <task id="LOCAL-00001" summary="shared">
       <option name="closed" value="true" />
@@ -217,7 +218,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723285819260</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="created META-INF file">
+      <option name="closed" value="true" />
+      <created>1723301293284</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723301293284</updated>
+    </task>
+    <task id="LOCAL-00005" summary="INTRODUCE LOGBACK TO HANDLE LOGS">
+      <option name="closed" value="true" />
+      <created>1723871999001</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723871999001</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +244,8 @@
     <MESSAGE value="shared" />
     <MESSAGE value="remade in layered" />
     <MESSAGE value="recorrect CROS policy issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="recorrect CROS policy issue" />
+    <MESSAGE value="created META-INF file" />
+    <MESSAGE value="INTRODUCE LOGBACK TO HANDLE LOGS" />
+    <option name="LAST_COMMIT_MESSAGE" value="INTRODUCE LOGBACK TO HANDLE LOGS" />
   </component>
 </project>
