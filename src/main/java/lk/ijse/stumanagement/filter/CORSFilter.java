@@ -24,8 +24,6 @@ public class CORSFilter extends HttpFilter {
 
             res.setHeader("Access-Control-Allow-Origin", origin);
 
-            res.setHeader("Access-Control-Allow-Origin", "*");
-
             // request eka kiyanava server eka pathe thiyena methods allow karanna access one kiayala
             res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 

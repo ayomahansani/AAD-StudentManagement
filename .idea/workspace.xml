@@ -9,19 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83826c96-c841-4f03-8a41-9934304d0f5e" name="Changes" comment="created BOFactory">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="83826c96-c841-4f03-8a41-9934304d0f5e" name="Changes" comment="done layered architecture">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae9dd6f1-7c74-4b1c-8571-7ca294403780.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ae9dd6f1-7c74-4b1c-8571-7ca294403780.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae9dd6f1-7c74-4b1c-8571-7ca294403780/storage_v2/_src_/schema/aad67.BX6EBQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ae9dd6f1-7c74-4b1c-8571-7ca294403780/storage_v2/_src_/schema/aad67.BX6EBQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae9dd6f1-7c74-4b1c-8571-7ca294403780.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae9dd6f1-7c74-4b1c-8571-7ca294403780/storage_v2/_src_/schema/aad67.BX6EBQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/bo/StudentBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/bo/StudentBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/bo/StudentBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/bo/StudentBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/controllers/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/CrudDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/CrudDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/StudentDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/filter/CORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/filter/CORSFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,27 +55,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.241.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/ayomahansani/Desktop/stuManagement-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.241.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ayomahansani/Desktop/stuManagement-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement" />
@@ -209,6 +202,7 @@
       <workItem from="1723780127916" duration="71000" />
       <workItem from="1723783886365" duration="257000" />
       <workItem from="1723785033713" duration="13702000" />
+      <workItem from="1724140545509" duration="4033000" />
     </task>
     <task id="LOCAL-00001" summary="shared">
       <option name="closed" value="true" />
@@ -298,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724057684994</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="done layered architecture">
+      <option name="closed" value="true" />
+      <created>1724087779632</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724087779632</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +318,7 @@
     <MESSAGE value="created CrudDAO" />
     <MESSAGE value="created DAOFactory" />
     <MESSAGE value="created BOFactory" />
-    <option name="LAST_COMMIT_MESSAGE" value="created BOFactory" />
+    <MESSAGE value="done layered architecture" />
+    <option name="LAST_COMMIT_MESSAGE" value="done layered architecture" />
   </component>
 </project>

@@ -74,7 +74,6 @@ public class StudentController extends HttpServlet {
 
 
 
-
             // ======= after create connection pool , this is the step 3 ===========
 
 
@@ -286,12 +285,10 @@ public class StudentController extends HttpServlet {
 
         try(var writer = resp.getWriter()) {
 
-            //var studentId = req.getParameter("id");
+            var studentId = req.getParameter("id");
 
             Jsonb jsonb = JsonbBuilder.create();    //json bind type object ekak create kara gannava
             StudentDTO studentDTO = jsonb.fromJson(req.getReader(), StudentDTO.class);
-
-            var studentId = studentDTO.getId();
 
             if(studentBO.updateStudent(studentId, studentDTO, connection)){
                 System.out.println("Student updated successfully");
@@ -405,12 +402,7 @@ public class StudentController extends HttpServlet {
 
         try(var writer = resp.getWriter()) {
 
-            //var studentId = req.getParameter("id");
-
-            Jsonb jsonb = JsonbBuilder.create();    //json bind type object ekak create kara gannava
-            StudentDTO studentDTO = jsonb.fromJson(req.getReader(), StudentDTO.class);
-
-            var studentId = studentDTO.getId();
+            var studentId = req.getParameter("id");
 
             if(studentBO.deleteStudent(studentId, connection)){
                 System.out.println("Student deleted successfully");
