@@ -11,12 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="83826c96-c841-4f03-8a41-9934304d0f5e" name="Changes" comment="changed the codes of do methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/bo/StudentBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/bo/StudentBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/bo/StudentBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/bo/StudentBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/controllers/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/CrudDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/CrudDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/stumanagement/dao/StudentDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +96,7 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="68444e49-904b-4ca6-a7f4-300f7ec3b138" />
         <option name="HTTP_PORT" value="8082" />
+        <option name="JNDI_PORT" value="1098" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -204,6 +199,7 @@
       <workItem from="1723783886365" duration="257000" />
       <workItem from="1723785033713" duration="13702000" />
       <workItem from="1724140545509" duration="7023000" />
+      <workItem from="1724254463467" duration="709000" />
     </task>
     <task id="LOCAL-00001" summary="shared">
       <option name="closed" value="true" />
