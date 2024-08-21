@@ -24,6 +24,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/student"
 //        initParams = {
@@ -377,15 +378,15 @@ public class StudentController extends HttpServlet {
 
         try (var writer = resp.getWriter()){
 
-            StudentDTO studentDTO;
-            studentDTO = studentBO.getStudent(connection);
-            System.out.println(studentDTO);
+            List<StudentDTO> studentDTOList = studentBO.getStudent(connection);
+            System.out.println(studentDTOList);
 
             resp.setContentType("application/json");
+
             Jsonb jsonb = JsonbBuilder.create();
 
             // Serialization
-            jsonb.toJson(studentDTO, writer);
+            jsonb.toJson(studentDTOList, writer);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

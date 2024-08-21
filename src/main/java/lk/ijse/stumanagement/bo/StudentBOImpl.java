@@ -8,6 +8,8 @@ import lk.ijse.stumanagement.entity.Student;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public final class StudentBOImpl implements StudentBO {
@@ -16,9 +18,16 @@ public final class StudentBOImpl implements StudentBO {
 
 
     @Override
-    public StudentDTO getStudent(Connection connection) throws SQLException {
-        Student student = studentDAO.get(connection);
-        return new StudentDTO(student.getId(),student.getName(),student.getEmail(),student.getCity(),student.getLevel());
+    public List<StudentDTO> getStudent(Connection connection) throws SQLException {
+        List<Student> studentList = studentDAO.get(connection);
+        List<StudentDTO> studentDTOList = new ArrayList<>();
+
+        for (Student student : studentList) {
+            StudentDTO studentDTO = new StudentDTO(student.getId(),student.getName(),student.getEmail(),student.getCity(),student.getLevel());
+            studentDTOList.add(studentDTO);
+        }
+
+        return studentDTOList;
     }
 
     @Override

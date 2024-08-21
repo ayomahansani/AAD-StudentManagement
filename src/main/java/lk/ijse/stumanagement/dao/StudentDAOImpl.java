@@ -1,10 +1,11 @@
 package lk.ijse.stumanagement.dao;
 
-import lk.ijse.stumanagement.dto.StudentDTO;
 import lk.ijse.stumanagement.entity.Student;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class StudentDAOImpl implements StudentDAO {
 
@@ -15,9 +16,9 @@ public final class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public Student get(Connection connection) {
+    public List<Student> get(Connection connection) {
 
-        var student = new Student();
+        List<Student> studentList = new ArrayList<>();
 
         try{
             var ps = connection.prepareStatement(GET_STUDENT);
@@ -25,17 +26,22 @@ public final class StudentDAOImpl implements StudentDAO {
             var resultSet = ps.executeQuery();
 
             while(resultSet.next()){
+
+                var student = new Student();
+
                 student.setId(resultSet.getString("id"));
                 student.setName(resultSet.getString("name"));
                 student.setEmail(resultSet.getString("email"));
                 student.setCity(resultSet.getString("city"));
                 student.setLevel(resultSet.getString("level"));
+
+                studentList.add(student);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return student;
+        return studentList;
     }
 
 
